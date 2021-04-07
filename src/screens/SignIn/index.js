@@ -6,6 +6,7 @@ import {
     Container,
     InputArea,
     CustomButton,
+    CustomButtonCreateAcount,
     CustomButtonText,
     SignMessageButton,
     SignMessageButtonText,
@@ -14,7 +15,7 @@ import {
 
 import Api from '../../Api';
 import SignInput from '../../components/SignInput';
-import Initial from '../../assets/logo.svg';
+import Initial from '../../assets/logopet.svg';
 import Cpf from '../../assets/person.svg';
 import LockIcon from '../../assets/lock.svg';
 
@@ -75,12 +76,17 @@ export default () => {
                 <CustomButton onPress={handleSignClick}>
                     <CustomButtonText>LOGIN</CustomButtonText>
                 </CustomButton>
+
+                <CustomButtonCreateAcount onPress={''}>
+                    <CustomButtonText>CADASTRE-SE</CustomButtonText>
+                </CustomButtonCreateAcount>
             </InputArea>
 
             <SignMessageButton onPress={handleRecoveryClick}>
                 <SignMessageButtonText>Esqueceu sua senha?</SignMessageButtonText>
                 <SignMessageButtonTextBold>Redefinir-senha</SignMessageButtonTextBold>
             </SignMessageButton> 
+
 
         </Container>
     );

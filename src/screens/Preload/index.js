@@ -3,7 +3,7 @@ import { Container, LoadingIcon } from './styles';
 import { AsyncStorage } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import Initial from '../../assets/logo.svg';
+import Initial from '../../assets/logopet.svg';
 
 export default () => {
 
