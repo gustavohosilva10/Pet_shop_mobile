@@ -1,11 +1,11 @@
 import AsyncStorage from 'react-native';
-const BASE_API = 'https://d165dcd58b5a.ngrok.io/api';
+const BASE_API = 'http://6b7542cdb93c.ngrok.io';
 
 export default {
     signIn: async (email,password) => {
         console.log("email", email);
         console.log("password", password);
-        const req = await fetch(`${BASE_API}/auth/login`,{
+        const req = await fetch(`${BASE_API}/api/login`,{
             method:'POST',
             headers: {
                 Accept: 'application/json',
