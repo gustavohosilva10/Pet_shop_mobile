@@ -13,27 +13,29 @@ import {
 } from './styles';
 
 import Api from '../../Api';
-import SignInput from '../../components/SignInput';
+import RegisterInput from '../../components/RegisterInput';
 import Initial from '../../assets/logopet.svg';
 import Cpf from '../../assets/person.svg';
+import Email from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
 
 
 export default () => {
   const navigation = useNavigation();
 
+  const [nameField, setNameField] = useState('');
   const [emailField, setEmailField] = useState('');
   const [passwordField, setPasswordField] = useState('');
+  
+    const handleRegisterClick = async () => {
+        if(nameField!= '' && emailField != '' && passwordField != '') {
 
-    const handleSignClick = async () => {
-        if(emailField != '' && passwordField != '') {
-
-            let json = await Api.signIn(emailField, passwordField);
+            let json = await Api.register(nameField,emailField, passwordField);
           
             if(json.token) {
-               
+              
                 await AsyncStorage.setItem('token', json.token);
-
+                alert('Registrado com sucesso!');
                 navigation.reset({
                     routes:[{name:'MainTab'}]
                 });
@@ -46,9 +48,10 @@ export default () => {
         }
     }
 
-    const handleRecoveryClick = () => {
+    const handleReturnLoginClick = () => {
+        
         navigation.reset({
-            routes: [{name: 'MainTab'}]
+            routes: [{name: 'SignIn'}]
         });
     }
 
@@ -57,34 +60,38 @@ export default () => {
             <Initial width="100%" height="160" fill="#ffff" />
 
             <InputArea>
-                <SignInput
-               
+
+                <RegisterInput
                     IconSvg={Cpf}
-                    placeholder="Digite seu e-mail"
+                    placeholder="Registe seu nome"
+                    value={nameField}
+                    onChangeText={t=>setNameField(t)}
+                />
+
+                <RegisterInput
+                    IconSvg={Email}
+                    placeholder="Registre  seu e-mail"
                     value={emailField}
                     onChangeText={t=>setEmailField(t)}
                 />
     
-                <SignInput
+                <RegisterInput
                     IconSvg={LockIcon}
-                    placeholder="Digite sua senha"
+                    placeholder="Registre sua senha"
                     value={passwordField}
                     onChangeText={t=>setPasswordField(t)}
                     password={true}
                 />
 
-                <CustomButton onPress={handleSignClick}>
-                    <CustomButtonText>LOGIN</CustomButtonText>
+                <CustomButton onPress={handleRegisterClick}>
+                    <CustomButtonText>CADASTRAR</CustomButtonText>
                 </CustomButton>
-
-                <CustomButtonCreateAcount onPress={''}>
-                    <CustomButtonText>CADASTRE-SE</CustomButtonText>
-                </CustomButtonCreateAcount>
+       
             </InputArea>
 
-            <SignMessageButton onPress={handleRecoveryClick}>
-                <SignMessageButtonText>Esqueceu sua senha?</SignMessageButtonText>
-                <SignMessageButtonTextBold>Redefinir-senha</SignMessageButtonTextBold>
+            <SignMessageButton onPress={handleReturnLoginClick}>
+                <SignMessageButtonText>Já possui uma conta ?</SignMessageButtonText>
+                <SignMessageButtonTextBold>Faça login</SignMessageButtonTextBold>
             </SignMessageButton> 
 
 

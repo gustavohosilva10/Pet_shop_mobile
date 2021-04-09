@@ -48,10 +48,14 @@ export default () => {
 
     const handleRecoveryClick = () => {
         navigation.reset({
-            routes: [{name: 'MainTab'}]
+            routes: [{name: 'RecoverPassword'}]
         });
     }
-
+    const handleRegisterClick = () => {
+        navigation.reset({
+            routes: [{name: 'Register'}]
+        });
+    }
     return (
         <Container>
             <Initial width="100%" height="160" fill="#ffff" />
@@ -77,7 +81,7 @@ export default () => {
                     <CustomButtonText>LOGIN</CustomButtonText>
                 </CustomButton>
 
-                <CustomButtonCreateAcount onPress={''}>
+                <CustomButtonCreateAcount onPress={handleRegisterClick}>
                     <CustomButtonText>CADASTRE-SE</CustomButtonText>
                 </CustomButtonCreateAcount>
             </InputArea>

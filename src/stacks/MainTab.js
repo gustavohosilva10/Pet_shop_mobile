@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import CustomTabBar from '../components/CustomTabBar';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
+
 import TabHome from '../components/TabHome';
 const Tab = createBottomTabNavigator();
 
