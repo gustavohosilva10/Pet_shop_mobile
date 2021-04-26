@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faUserClock } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faUserClock } from '@fortawesome/free-solid-svg-icons'
 
 const Area = styled.TouchableOpacity`
     background-color: #FFFFFF;
@@ -29,7 +29,7 @@ const UserName = styled.Text`
 const SeeProfileButton = styled.View`
     width: 85px;
     height: 26px;
-    border: 3px solid #0000FF;
+    border: 3px solid #E09B42;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
@@ -37,18 +37,18 @@ const SeeProfileButton = styled.View`
 
 const SeeProfileButtonText = styled.Text`
     font-size: 14px;
-    color:#0000FF;
+    color:#E09B42;
 `;
 
 export default ({}) => {
     return (
         <Area>
-            <FontAwesomeIcon  width="48px" height="44px" border-radius="20px;" icon={ faUserClock } ></FontAwesomeIcon>
+            <FontAwesomeIcon  width="48px" height="44px" border-radius="20px;" icon={ faShoppingCart} ></FontAwesomeIcon>
             <InfoArea>
-                <UserName>Controle de ponto</UserName>
+                <UserName>Serviços</UserName>
 
                 <SeeProfileButton>
-                    <SeeProfileButtonText>Entrar</SeeProfileButtonText>
+                    <SeeProfileButtonText>Em breve</SeeProfileButtonText>
                 </SeeProfileButton>
             </InfoArea>
         </Area>

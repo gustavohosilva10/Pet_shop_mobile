@@ -3,12 +3,12 @@ import styled from 'styled-components/native';
 import DeliveryIcon from '../assets/principal.svg';
 
 const Area = styled.TouchableOpacity`
-    background-color: #FFFFFF;
+    background-color: #E09B42;
     margin-bottom: 20px;
     border-radius: 20px;
     padding: 15px;
     flex-direction: row;
-    border: 2px solid #DB504A;
+    border: 3px solid #DB504A;
 `;
 
 const Delivery = styled.Image`

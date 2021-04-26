@@ -9,7 +9,7 @@ import AccountIcon from '../assets/account.svg';
 
 const TabArea = styled.View`
     height: 60px;
-    background-color:#FFFFFF; 
+    background-color:#E09B42; 
     flex-direction: row;
 `;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faRoad } from '@fortawesome/free-solid-svg-icons'
+import { faRoad, faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Area = styled.TouchableOpacity`
     background-color: #FFFFFF;
@@ -30,7 +30,7 @@ const UserName = styled.Text`
 const SeeProfileButton = styled.View`
     width: 85px;
     height: 26px;
-    border: 3px solid #0000FF;
+    border: 3px solid #E09B42;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@ const SeeProfileButton = styled.View`
 
 const SeeProfileButtonText = styled.Text`
     font-size: 14px;
-    color:#0000FF;
+    color:#E09B42;
 `;
 
 
@@ -46,9 +46,9 @@ const SeeProfileButtonText = styled.Text`
 export default ({}) => {
     return (
         <Area>
-        <FontAwesomeIcon  width="48px" height="44px" border-radius="20px;" icon={ faRoad } ></FontAwesomeIcon>
+        <FontAwesomeIcon  width="48px" height="44px" border-radius="20px;" icon={ faUser } ></FontAwesomeIcon>
             <InfoArea>
-                <UserName>Controle de Rotas</UserName>
+                <UserName>Meu perfil</UserName>
 
                 <SeeProfileButton>
                     <SeeProfileButtonText>Entrar</SeeProfileButtonText>

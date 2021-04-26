@@ -6,7 +6,7 @@ import AccountIcon from '../assets/account.svg';
 
 const Teste = styled.View`
     height:80px;
-    background-color:#ffff; 
+    background-color:#FFF68F; 
     flex-direction: row;
 `;
 
