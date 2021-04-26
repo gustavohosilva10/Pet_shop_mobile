@@ -10,10 +10,10 @@ import {
     Header, BalanceContainer, IconConfig, IconProfile,Wrapper
 } from './styles';
 
-import Deliverys from '../../components/Deliverys';
-import Maintenance from '../../components/Maintenance';
-import Expenses from '../../components/Expenses';
-import CheckPoint from '../../components/CheckPoint';
+import Profile from '../../components/Profile';
+import MyPets from '../../components/MyPets';
+import Vaccines from '../../components/Vaccines';
+import Services from '../../components/Services';
 
 export default () => {
     const navigation = useNavigation();
@@ -44,10 +44,10 @@ export default () => {
             }>
                 
                 <ListArea>
-                    <Deliverys />
-                    <Maintenance />
-                    <Expenses />
-                    <CheckPoint />
+                    <Profile />
+                    <MyPets />
+                    <Vaccines />
+                    <Services />
                 </ListArea>
 
             </Scroller>
