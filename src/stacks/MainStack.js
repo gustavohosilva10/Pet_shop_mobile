@@ -9,6 +9,7 @@ import RecoverPassword from '../screens/RecoverPassword';
 import PasswordCode from '../screens/PasswordCode';
 import NewPassword from '../screens/NewPassword';
 import Register from '../screens/Register';
+import CompletProfile from '../screens/CompletProfile';
 const Stack = createStackNavigator();
 
 
@@ -27,6 +28,8 @@ export default () => (
         <Stack.Screen name="RecoverPassword" component={RecoverPassword}/>
         <Stack.Screen name="PasswordCode" component={PasswordCode}/>
         <Stack.Screen name="NewPassword" component={NewPassword}/>
+        <Stack.Screen name="CompletProfile" component={CompletProfile}/>
     </Stack.Navigator>
+
     
 );

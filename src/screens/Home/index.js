@@ -16,12 +16,13 @@ import Vaccines from '../../components/Vaccines';
 import Services from '../../components/Services';
 
 export default () => {
-    const navigation = useNavigation();
+  
     
     const [refreshing, setRefreshing] = useState(false);
     const onRefresh = () => {
         setRefreshing(false);
     }
+ 
 
     return (
         <Wrapper>
@@ -44,7 +45,7 @@ export default () => {
             }>
                 
                 <ListArea>
-                    <Profile />
+                    <Profile  />
                     <MyPets />
                     <Vaccines />
                     <Services />

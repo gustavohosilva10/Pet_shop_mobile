@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faRoad, faUser } from '@fortawesome/free-solid-svg-icons'
+import { useNavigation } from '@react-navigation/native';
 
 const Area = styled.TouchableOpacity`
     background-color: #FFFFFF;
@@ -43,14 +44,21 @@ const SeeProfileButtonText = styled.Text`
 
 
 
-export default ({}) => {
+export default () => {
+    const navigation = useNavigation();
+    
+    const handleCompletProfile = () => {
+        navigation.navigate({
+            routes: [{name: 'Register'}]
+        });
+    }
     return (
         <Area>
         <FontAwesomeIcon  width="48px" height="44px" border-radius="20px;" icon={ faUser } ></FontAwesomeIcon>
-            <InfoArea>
-                <UserName>Meu perfil</UserName>
+            <InfoArea onPress={handleCompletProfile} >
+                <UserName>Completar perfil</UserName>
 
-                <SeeProfileButton>
+                <SeeProfileButton >
                     <SeeProfileButtonText>Entrar</SeeProfileButtonText>
                 </SeeProfileButton>
             </InfoArea>
