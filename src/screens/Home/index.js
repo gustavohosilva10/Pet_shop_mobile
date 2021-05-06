@@ -3,6 +3,7 @@ import { Platform, RefreshControl } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Cogs from '../../assets/settings.svg';
 import AccountIcon from '../../assets/account.svg';
+
 import {
     Container,
     Scroller,
@@ -16,14 +17,12 @@ import Vaccines from '../../components/Vaccines';
 import Services from '../../components/Services';
 
 export default () => {
-  
-    
+    const navigation = useNavigation();
     const [refreshing, setRefreshing] = useState(false);
     const onRefresh = () => {
         setRefreshing(false);
     }
- 
-
+    
     return (
         <Wrapper>
             <Container>
@@ -45,7 +44,7 @@ export default () => {
             }>
                 
                 <ListArea>
-                    <Profile  />
+                    <Profile />
                     <MyPets />
                     <Vaccines />
                     <Services />

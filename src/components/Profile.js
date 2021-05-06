@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faRoad, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useNavigation } from '@react-navigation/native';
+import { Button } from 'react-native';
 
 const Area = styled.TouchableOpacity`
     background-color: #FFFFFF;
@@ -28,7 +29,7 @@ const UserName = styled.Text`
     font-weight: bold;
 `;
 
-const SeeProfileButton = styled.View`
+/* const a = styled.View`
     width: 85px;
     height: 26px;
     border: 3px solid #E09B42;
@@ -40,27 +41,23 @@ const SeeProfileButton = styled.View`
 const SeeProfileButtonText = styled.Text`
     font-size: 14px;
     color:#E09B42;
-`;
+`; */
 
 
 
 export default () => {
     const navigation = useNavigation();
-    
-    const handleCompletProfile = () => {
-        navigation.navigate({
-            routes: [{name: 'Register'}]
-        });
-    }
+
     return (
         <Area>
         <FontAwesomeIcon  width="48px" height="44px" border-radius="20px;" icon={ faUser } ></FontAwesomeIcon>
-            <InfoArea onPress={handleCompletProfile} >
+            <InfoArea>
                 <UserName>Completar perfil</UserName>
-
-                <SeeProfileButton >
-                    <SeeProfileButtonText>Entrar</SeeProfileButtonText>
-                </SeeProfileButton>
+                <Button
+                    title="Entrar"
+                    color="#E09B42"
+                    onPress={() => navigation.navigate('CompletProfile')}
+                />
             </InfoArea>
         </Area>
     );
