@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faMapMarkedAlt, faPaw } from '@fortawesome/free-solid-svg-icons'
-
+import { Button } from 'react-native';
 const Area = styled.TouchableOpacity`
     background-color: #FFFFFF;
     margin-bottom: 20px;
@@ -47,11 +47,16 @@ export default ({}) => {
         <Area>
             <FontAwesomeIcon  width="48px" height="44px" border-radius="20px;" icon={ faPaw } ></FontAwesomeIcon>
             <InfoArea>
-                <UserName>Meus pets</UserName>
+                <UserName>Meu pet</UserName>
 
-                <SeeProfileButton>
-                    <SeeProfileButtonText>Entrar</SeeProfileButtonText>
-                </SeeProfileButton>
+                <Button
+                    title="Entrar"
+                    color="#E09B42"
+                    width="85px"
+                    height= "26px"
+                    onPress={() => navigation.navigate('CompletProfile')}
+                />
+
             </InfoArea>
         </Area>
     );

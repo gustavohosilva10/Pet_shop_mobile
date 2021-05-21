@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faShoppingCart, faUserClock } from '@fortawesome/free-solid-svg-icons'
-
+import { Button } from 'react-native';
 const Area = styled.TouchableOpacity`
     background-color: #FFFFFF;
     margin-bottom: 20px;
@@ -46,10 +46,15 @@ export default ({}) => {
             <FontAwesomeIcon  width="48px" height="44px" border-radius="20px;" icon={ faShoppingCart} ></FontAwesomeIcon>
             <InfoArea>
                 <UserName>Serviços</UserName>
+                
+                <Button
+                    title="Entrar"
+                    color="#E09B42"
+                    width="85px"
+                    height= "26px"
+                    onPress={() => navigation.navigate('CompletProfile')}
+                />
 
-                <SeeProfileButton>
-                    <SeeProfileButtonText>Em breve</SeeProfileButtonText>
-                </SeeProfileButton>
             </InfoArea>
         </Area>
     );

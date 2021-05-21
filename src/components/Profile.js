@@ -52,10 +52,12 @@ export default () => {
         <Area>
         <FontAwesomeIcon  width="48px" height="44px" border-radius="20px;" icon={ faUser } ></FontAwesomeIcon>
             <InfoArea>
-                <UserName>Completar perfil</UserName>
+                <UserName>Perfil</UserName>
                 <Button
                     title="Entrar"
                     color="#E09B42"
+                    width="85px"
+                    height= "26px"
                     onPress={() => navigation.navigate('CompletProfile')}
                 />
             </InfoArea>
