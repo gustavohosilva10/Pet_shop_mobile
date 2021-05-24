@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 
-import RegisterInput from '../../components/RegisterInput';
+import CompleteRegisterInput from '../../components/CompleteRegisterInput';
 import Phone from '../../assets/phone.svg';
 import Cellphone from '../../assets/cellphone.svg';
 import Picture from '../../assets/picture.svg';
@@ -65,7 +65,31 @@ export default () => {
     const [addressField, setAddressField] = useState('');
     const [telephoneField, setTelephoneField] = useState('');
     const [cellphoneField, setCellphoneField] = useState(''); 
- 
+    const [cep_userField, setCep_userField] = useState('');
+
+    const handleCompleteRegisterClick = async () => {
+      if(addressField != '' && cellphoneField != '' && cep_userField != '') {
+
+          let json = await Api.register(addressField,cellphoneField, cep_userField);
+        
+          if(json.token) {
+            
+              await AsyncStorage.completeRegister('token', json.token);
+              
+              alert('Salvo com sucesso!');
+
+              navigation.reset({
+                  routes:[{name:'MainTab'}]
+              });
+              
+          } else {
+              alert('E-mail e/ou senha errados!');
+          }
+
+      } else {
+          alert("Preencha os campos!");
+      }
+    }
 
     return (
         <Container>
@@ -88,28 +112,36 @@ export default () => {
 
             <InputArea>
 
-                    <RegisterInput
+                    <CompleteRegisterInput
                         IconSvg={Home}
                         placeholder="Endereço"
-                        value={''}
+                        value={addressField}
                         onChangeText={t=>setAddressField(t)}
                     />
 
-                    <RegisterInput
+                    <CompleteRegisterInput
+                        IconSvg={Home}
+                        placeholder="Cep"
+                        value={cep_userField}
+                        onChangeText={t=>setCep_userField(t)}
+                    />
+
+
+                    <CompleteRegisterInput
                         IconSvg={Phone}
                         placeholder="Telefone"
-                        value={''}
+                        value={telephoneField}
                         onChangeText={t=>setTelephoneField(t)}
                     />
 
-                    <RegisterInput
+                    <CompleteRegisterInput
                         IconSvg={Cellphone}
                         placeholder="Celular"
-                        value={''}
+                        value={cellphoneField}
                         onChangeText={t=>setCellphoneField(t)}
                     />
 
-                    <CustomButton onPress={''}>
+                    <CustomButton onPress={handleCompleteRegisterClick}>
                         <CustomButtonText>Salvar</CustomButtonText>
                     </CustomButton> 
 

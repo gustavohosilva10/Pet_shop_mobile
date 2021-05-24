@@ -1,5 +1,5 @@
 import AsyncStorage from 'react-native';
-const BASE_API = 'https://f2c033df0965.ngrok.io';
+const BASE_API = 'https://c761cfb5da83.ngrok.io';
 
 export default {
 
@@ -32,5 +32,23 @@ export default {
         });
         const json = await req.json();
         return json;
+    },
+
+    completeRegister: async (addressField,cellphoneField,cep_userField) => {
+        console.log("addressField", addressField);
+        console.log("cellphoneField", cellphoneField);
+        console.log("cep_userField", cep_userField);
+        const req = await fetch(`${BASE_API}/api/store/address`,{
+            method:'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({addressField, cellphoneField,cep_userField})
+        });
+        const json = await req.json();
+        return json;
     }
+
+
 };
