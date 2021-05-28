@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
+import { AsyncStorage } from 'react-native';
 import Axios from "axios";
 import Constants from "expo-constants";
 import {
@@ -19,7 +20,7 @@ import Phone from '../../assets/phone.svg';
 import Cellphone from '../../assets/cellphone.svg';
 import Picture from '../../assets/picture.svg';
 import Home from '../../assets/home.svg';
-
+import Api from '../../Api';
 
 export default () => {
     const navigation = useNavigation();
@@ -58,8 +59,8 @@ export default () => {
           uri: profile_picture.uri,
           type: profile_picture.type
         });
-    
-        await Axios.post("", data);
+        alert(console.log(data))
+        await Axios.post('https://67e3b7d9bc50.ngrok.io/store/saveProfilePicture', data);
       }
 
     const [addressField, setAddressField] = useState('');
@@ -70,11 +71,10 @@ export default () => {
     const handleCompleteRegisterClick = async () => {
       if(addressField != '' && cellphoneField != '' && cep_userField != '') {
 
-          let json = await Api.register(addressField,cellphoneField, cep_userField);
+          let json = await Api.completeRegister(addressField,telephoneField,cellphoneField,cep_userField);
         
-          if(json.token) {
+          if(json == true) {
             
-              await AsyncStorage.completeRegister('token', json.token);
               
               alert('Salvo com sucesso!');
 
