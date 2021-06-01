@@ -75,6 +75,7 @@ export default () => {
         
           if(json == true) {
             
+              await AsyncStorage.setIten('token', json.token);
               
               alert('Salvo com sucesso!');
 

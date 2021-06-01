@@ -1,5 +1,5 @@
-import AsyncStorage from 'react-native';
-const BASE_API = 'https://67e3b7d9bc50.ngrok.io';        
+import AsyncStorage from '@react-native-async-storage/async-storage';
+const BASE_API = 'https://3715ba2b0ed3.ngrok.io';        
 
 export default {
 
@@ -39,15 +39,22 @@ export default {
         console.log("telephone", telephone);
         console.log("cellphone", cellphone);
         console.log("cep_user", cep_user);
+
+        
+        const token = await AsyncStorage.getItem('token');
+        
+        console.log(token);
         const req = await fetch(`${BASE_API}/api/store/address`,{
             method:'POST',
             headers: {
                 Accept: 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization':`Bearer ${token}`
             },
             body: JSON.stringify({address,telephone,cellphone,cep_user})
         });
         const json = await req.json();
+        console.log(json);
         return json;
     }
 

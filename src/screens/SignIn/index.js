@@ -1,6 +1,6 @@
 import React, { useState,useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
     Container,
     InputArea,
@@ -31,7 +31,7 @@ export default () => {
             let json = await Api.signIn(emailField, passwordField);
           
             if(json.token) {
-               
+              
                 await AsyncStorage.setItem('token', json.token);
 
                 navigation.reset({
