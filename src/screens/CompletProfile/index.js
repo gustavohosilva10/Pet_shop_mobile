@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Axios from "axios";
 import Constants from "expo-constants";
 import {
@@ -73,10 +73,8 @@ export default () => {
 
           let json = await Api.completeRegister(addressField,telephoneField,cellphoneField,cep_userField);
         
-          if(json == true) {
+          if(json != null) {
             
-              await AsyncStorage.setIten('token', json.token);
-              
               alert('Salvo com sucesso!');
 
               navigation.reset({

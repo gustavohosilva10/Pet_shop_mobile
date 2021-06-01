@@ -53,8 +53,8 @@ export default {
             },
             body: JSON.stringify({address,telephone,cellphone,cep_user})
         });
-        const json = await req.json();
-        console.log(json);
+    
+        const json = req;
         return json;
     }
 
