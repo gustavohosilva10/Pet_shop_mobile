@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const BASE_API = 'https://3715ba2b0ed3.ngrok.io';        
+const BASE_API = 'https://3a10c03ca2c4.ngrok.io';        
 
 export default {
 
@@ -56,7 +56,25 @@ export default {
     
         const json = req;
         return json;
-    }
+    },
+    UploadeImageProfile: async (profile_picture) => {
+        console.log("profile_picture", profile_picture);
+        const token = await AsyncStorage.getItem('token');
+        const req = await fetch(`${BASE_API}/api/store/saveProfilePicture`,{
+            method:'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization':`Bearer ${token}`
+            },
+            body: JSON.stringify({profile_picture})
+        });
+        const json = req;
+        return json;
+    },
+
+
+
 
 
 };

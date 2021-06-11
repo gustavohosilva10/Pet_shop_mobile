@@ -3,8 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import Axios from "axios";
+/* import AsyncStorage from '@react-native-async-storage/async-storage';
+import Axios from "axios"; */
 import Constants from "expo-constants";
 import {
     Container,
@@ -18,7 +18,6 @@ import {
 import CompleteRegisterInput from '../../components/CompleteRegisterInput';
 import Phone from '../../assets/phone.svg';
 import Cellphone from '../../assets/cellphone.svg';
-import Picture from '../../assets/picture.svg';
 import Home from '../../assets/home.svg';
 import Api from '../../Api';
 
@@ -53,7 +52,6 @@ export default () => {
     }
 
     async function uploadImage() {
-/*     const token = await AsyncStorage.getItem('token'); */
       
         const data = new FormData();
     
@@ -66,16 +64,16 @@ export default () => {
         if(json != null){
           alert('Salvo com sucesso!');
         }
-/*         await Axios.post('https://47a02f85bd8a.ngrok.io/store/saveProfilePicture', data,token); */
       }
 
-    const [addressField, setAddressField] = useState('');
-    const [telephoneField, setTelephoneField] = useState('');
-    const [cellphoneField, setCellphoneField] = useState(''); 
-    const [cep_userField, setCep_userField] = useState('');
+    const [name_petField, setName_PetField] = useState('');
+    const [ageField, setaAgeField] = useState('');
+    const [weightField, setWeightField] = useState(''); 
+    const [breedField, setBreedField] = useState('');
+    const [sex_petField, setSex_PetField] = useState('');
 
     const handleCompleteRegisterClick = async () => {
-      if(addressField != '' && cellphoneField != '' && cep_userField != '') {
+      if(setName_PetField != '' && cellphoneField != '' && cep_userField != '') {
 
           let json = await Api.completeRegister(addressField,telephoneField,cellphoneField,cep_userField);
         
