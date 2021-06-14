@@ -29,11 +29,11 @@ export default () => {
                 <Header>
                     <BalanceContainer>
                         <IconProfile>
-                            <AccountIcon  width="30" height="50" fill="#000000" />
+                            <AccountIcon  size="30" height="50" fill="#000000" />
                         </IconProfile>
                         
                         <IconConfig>
-                            <Cogs  width="25" height="50" fill="#000000" />
+                            <Cogs  size="25" height="50" fill="#000000" />
                         </IconConfig>
                     </BalanceContainer>
 

@@ -24,7 +24,7 @@ import Api from '../../Api';
 
 export default () => {
     const navigation = useNavigation();
-    const [profile_picture, setProfilePicture] = useState();
+    const [image, setImage] = useState();
 
     async function imagePickerCall() {
         
@@ -38,7 +38,7 @@ export default () => {
         }
     
         const data = await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ImagePicker.MediaTypeOptions.All
+          mediaTypes: ImagePicker.MediaTypeOptions.Images
         });
     
         if (data.cancelled) {
@@ -49,24 +49,24 @@ export default () => {
           return;
         }
     
-        setProfilePicture(data);
+        setImage(data);
     }
 
     async function uploadImage() {
-/*     const token = await AsyncStorage.getItem('token'); */
+        const token = await AsyncStorage.getItem('token');
       
         const data = new FormData();
     
-        data.append("profile_picture", {
-          uri: profile_picture.uri,
-          type: profile_picture.type,
+        data.append("image", {
+          uri: image.uri,
+          type: image.type,
         });
-  
-        let json = await Api.UploadeImageProfile(profile_picture);
+        
+        let json = await Api.UploadImageProfile(image);
         if(json != null){
           alert('Salvo com sucesso!');
-        }
-/*         await Axios.post('https://47a02f85bd8a.ngrok.io/store/saveProfilePicture', data,token); */
+        }  
+        /* await Axios.post('https://17e353461ff6.ngrok.io/api/store/saveProfilePicture', data,token);  */ 
       }
 
     const [addressField, setAddressField] = useState('');
@@ -100,11 +100,11 @@ export default () => {
         <Container>
             <Image
             source={{
-            uri: profile_picture
-                ? profile_picture.uri
+            uri: image
+                ? image.uri
                 : "https://www.ovosliva.com.br/wp-content/uploads/2019/02/Em-constru%C3%A7%C3%A3o.jpg"
             }}
-            style={styles.profile_picture}
+            style={styles.image}
             />
 
             <TouchableOpacity style={styles.button} onPress={imagePickerCall}>
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     buttonText: {
       color: "#fff"
     },
-    profile_picture: {
+    image: {
       width: 80,
       height: 80,
       borderRadius: 50
