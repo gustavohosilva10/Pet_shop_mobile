@@ -4,7 +4,6 @@ import { TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Axios from "axios";
 import Constants from "expo-constants";
 import {
     Container,
@@ -18,9 +17,9 @@ import {
 import CompleteRegisterInput from '../../components/CompleteRegisterInput';
 import Phone from '../../assets/phone.svg';
 import Cellphone from '../../assets/cellphone.svg';
-import Picture from '../../assets/picture.svg';
 import Home from '../../assets/home.svg';
 import Api from '../../Api';
+import Axios from 'axios';
 
 export default () => {
     const navigation = useNavigation();
@@ -53,7 +52,7 @@ export default () => {
     }
 
     async function uploadImage() {
-        const token = await AsyncStorage.getItem('token');
+       const token = await AsyncStorage.getItem('token'); 
       
         const data = new FormData();
     
@@ -61,12 +60,16 @@ export default () => {
           uri: image.uri,
           type: image.type,
         });
-        
-        let json = await Api.UploadImageProfile(image);
-        if(json != null){
-          alert('Salvo com sucesso!');
-        }  
-        /* await Axios.post('https://17e353461ff6.ngrok.io/api/store/saveProfilePicture', data,token);  */ 
+
+        alert(console.log(data));
+         await Axios.post('https://fe460d725b0a.ngrok.io/api/store/saveProfilePicture',{
+            method:'POST',
+            body:data,
+            headers:{
+              'content-type': 'multipart/form-data',
+              'Authorization':`Bearer ${token}`
+            },
+         } ); 
       }
 
     const [addressField, setAddressField] = useState('');

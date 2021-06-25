@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const BASE_API = 'https://17e353461ff6.ngrok.io';        
+const BASE_API = 'https://fe460d725b0a.ngrok.io';        
 
 export default {
 
@@ -67,7 +67,7 @@ export default {
                 'Content-Type': 'application/json',
                 'Authorization':`Bearer ${token}`
             },
-            body: JSON.stringify({image})
+            body: image
             
         });
         const json = req;

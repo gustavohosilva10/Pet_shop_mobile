@@ -26,7 +26,7 @@ export default () => {
     return (
         <Wrapper>
             <Container>
-                <Header>
+               {/*  <Header>
                     <BalanceContainer>
                         <IconProfile>
                             <AccountIcon  size="30" height="50" fill="#000000" />
@@ -37,7 +37,7 @@ export default () => {
                         </IconConfig>
                     </BalanceContainer>
 
-                </Header>
+                </Header> */}
 
             <Scroller refreshControl={ 
                 <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
