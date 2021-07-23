@@ -14,7 +14,7 @@ export const Scroller = styled.ScrollView`
 export const FakeSwiper = styled.View`
     width:100%;
     height:180px;
-    background-color:#DB504A;  
+    background-color:#FFF68F;  
 `;
 
 export const PageBody = styled.View`
@@ -36,8 +36,8 @@ export const UserAvatar = styled.Image`
     margin-left: 30px;
     margin-right: 20px;
     border-width: 4px;
-    border-color: #DB504A; 
-    background-color: #4EADBE;
+    border-color: #E09B42; 
+    background-color: #FFF68F;
 `;
 export const UserInfo = styled.View`
     flex: 1;
@@ -51,11 +51,23 @@ export const UserInfoName = styled.Text`
     margin-bottom: 10px;
 `;
 
-export const JobName = styled.Text`
+export const InformationUser = styled.View`
+    margin-top: 3px;
+    margin-left: 8px;
+    flex: 1;
+    justify-content:flex-start;
+`;
 
+export const InformationName = styled.Text`
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
 `;
 
 export const ServiceArea = styled.Text`
 background-color: #ffff;
 
 `;
+
+

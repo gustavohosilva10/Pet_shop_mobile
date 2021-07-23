@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const BASE_API = 'https://3db706696eef.ngrok.io';        
+const BASE_API = 'https://5d9fce6a30e3.ngrok.io';        
 
 export default {
 
