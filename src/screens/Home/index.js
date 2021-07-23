@@ -15,6 +15,8 @@ import Profile from '../../components/Profile';
 import MyPets from '../../components/MyPets';
 import Vaccines from '../../components/Vaccines';
 import Services from '../../components/Services';
+import Adoption from '../../components/Adoption';
+import Donations from '../../components/Donations';
 
 export default () => {
     const navigation = useNavigation();
@@ -48,6 +50,8 @@ export default () => {
                     <MyPets />
                     <Vaccines />
                     <Services />
+                    <Adoption />
+                    <Donations />
                 </ListArea>
 
             </Scroller>
